@@ -1,6 +1,5 @@
 #include "ACM_Robot.h"
 
-
 ACM_Robot::ACM_Robot()
 {
 }
@@ -13,6 +12,8 @@ ACM_Robot::~ACM_Robot()
 void ACM_Robot::MoveForward(float time)
 {
 	// TODO: write the move code...
+	DriveForwardFull();
+	delay(300);
 }
 
 bool ACM_Robot::RotatePingSensor(int angle)
@@ -43,9 +44,23 @@ void ACM_Robot::Scan(int min_angle, int max_angle)
 	}
 }
 
-float ACM_Robot::Ping()
+long ACM_Robot::Ping()
 {
-	// TODO: Write Arduino code to make the ping sensor
-	//   work.
-	return 0.0f;
+	long duration;
+    // Send out PING))) signal pulse
+    pinMode(PingPin, OUTPUT);
+    digitalWrite(PingPin, LOW);
+    delayMicroseconds(2);
+    digitalWrite(PingPin, HIGH);
+    delayMicroseconds(5);
+    digitalWrite(PingPin, LOW);
+    
+    //Get duration it takes to receive echo
+    pinMode(PingPin, INPUT);
+    duration = pulseIn(PingPin, HIGH);
+    
+    //Convert duration into distance
+    //Distance = duration / 29 / 2;
+
+	return (duration / 29 / 2);
 }
