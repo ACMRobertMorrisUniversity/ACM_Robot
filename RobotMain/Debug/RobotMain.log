@@ -1,0 +1,57 @@
+﻿Build started 2/17/2014 6:48:39 PM.
+     1>Project "C:\Users\trae\Documents\GitHub\ACM_Robot\RobotMain\RobotMain.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino" /I"C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard" /I"c:\program files (x86)\arduino\hardware\tools\avr\avr\include\\" /I"c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\\" /I"c:\program files (x86)\arduino\hardware\tools\avr\avr\\" /I"c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\\" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D __AVR_ATmega328p__ /D __AVR_ATmega328P__ /D ARDUINO=105 /D ARDUINO_MAIN /D __AVR__ /D __avr__ /D F_CPU=16000000L /D __cplusplus /D _MBCS /X /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /FI"C:\Users\trae\Documents\GitHub\ACM_Robot\RobotMain\Visual Micro\.RobotMain.vsarduino.h" /analyze- /errorReport:prompt ACM_Robot.cpp
+         ACM_Robot.cpp
+     1>c1xx : warning C4117: macro name '__cplusplus' is reserved, '#define' ignored
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(4): warning C4005: '__AVR_ATmega328p__' : macro redefinition
+                 command-line arguments :  see previous definition of '__AVR_ATmega328p__'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(5): warning C4005: '__AVR_ATmega328P__' : macro redefinition
+                 command-line arguments :  see previous definition of '__AVR_ATmega328P__'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(7): warning C4005: 'ARDUINO_MAIN' : macro redefinition
+                 command-line arguments :  see previous definition of 'ARDUINO_MAIN'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(8): warning C4005: '__AVR__' : macro redefinition
+                 command-line arguments :  see previous definition of '__AVR__'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(9): warning C4005: '__avr__' : macro redefinition
+                 command-line arguments :  see previous definition of '__avr__'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(11): warning C4117: macro name '__cplusplus' is reserved, '#define' ignored
+     1>c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(18): warning C4005: '__asm__' : macro redefinition
+                 c:\users\trae\documents\github\acm_robot\robotmain\visual micro\.robotmain.vsarduino.h(13) : see previous definition of '__asm__'
+     1>c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\stddef.h(214): error C2371: 'size_t' : redefinition; different basic types
+                 c:\users\trae\documents\github\acm_robot\robotmain\predefined c++ types (compiler internal)(19) : see declaration of 'size_t'
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(106): error C3646: '__ATTR_NORETURN__' : unknown override specifier
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(152): error C2072: 'div' : initialization of a function
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(152): error C2440: 'initializing' : cannot convert from 'const char [12]' to 'div_t (int,int)'
+                 There are no conversions to function types, although there are conversions to references or pointers to functions
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(158): error C2072: 'ldiv' : initialization of a function
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(158): error C2440: 'initializing' : cannot convert from 'const char [12]' to 'ldiv_t (long,long)'
+                 There are no conversions to function types, although there are conversions to references or pointers to functions
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(278): error C3646: '__ATTR_NORETURN__' : unknown override specifier
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(290): error C3646: '__ATTR_MALLOC__' : unknown override specifier
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(319): error C3646: '__ATTR_MALLOC__' : unknown override specifier
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\stdlib.h(338): error C3646: '__ATTR_MALLOC__' : unknown override specifier
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\math.h(336): error C2143: syntax error : missing ')' before ':'
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\math.h(337): error C2059: syntax error : ')'
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\math.h(413): error C2143: syntax error : missing ')' before ':'
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\math.h(414): error C2059: syntax error : ')'
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\pgmspace.h(123): warning C4091: 'typedef ' : ignored on left of 'void' when no variable is declared
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\interrupt.h(110): error C2010: '[' : unexpected in macro formal parameter list
+     1>c:\program files (x86)\arduino\hardware\tools\avr\avr\include\avr\interrupt.h(110): error C2010: ']' : unexpected in macro formal parameter list
+     1>c:\program files (x86)\arduino\hardware\tools\avr\lib\gcc\avr\4.3.2\include\stdarg.h(43): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.cpp(7): error C2084: function 'ACM_Robot::ACM_Robot(void)' already has a body
+                 c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.h(23) : see previous definition of '{ctor}'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.cpp(19): error C2084: function 'ACM_Robot::~ACM_Robot(void)' already has a body
+                 c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.h(24) : see previous definition of '{dtor}'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.cpp(23): error C2084: function 'void ACM_Robot::MoveForward(float)' already has a body
+                 c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.h(28) : see previous definition of 'MoveForward'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.cpp(30): error C2084: function 'bool ACM_Robot::RotatePingSensor(int)' already has a body
+                 c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.h(26) : see previous definition of 'RotatePingSensor'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.cpp(40): error C2084: function 'void ACM_Robot::Scan(int,int)' already has a body
+                 c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.h(27) : see previous definition of 'Scan'
+     1>c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.cpp(57): error C2084: function 'long ACM_Robot::Ping(void)' already has a body
+                 c:\users\trae\documents\github\acm_robot\robotmain\acm_robot.h(29) : see previous definition of 'Ping'
+     1>Done Building Project "C:\Users\trae\Documents\GitHub\ACM_Robot\RobotMain\RobotMain.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.33
