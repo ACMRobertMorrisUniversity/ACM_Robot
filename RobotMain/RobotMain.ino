@@ -1,14 +1,23 @@
-#include ACM_Robot;
-ACM_Robot robot;
+#include "ACM_Robot.h";
+
+ACM_Robot robot = ACM_Robot();
+
+int i = 0;
+
 void setup()
 {
-robot=ACM_Robot();
- 
+	Serial.begin(9600);
+	robot.RotatePingSensor(0);
 }
 
 void loop()
 {
-
+	if( i > 1024 )
+		i = 0;
+	i++;
+	robot.RotatePingSensor(i);
+	delay(150);
+	Serial.println(i);
   /* add main program code here */
 
 }

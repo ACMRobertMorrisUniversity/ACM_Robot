@@ -21,9 +21,15 @@
     <ClInclude Include="ACM_Robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\libraries\Servo\Servo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ACM_Robot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\libraries\Servo\Servo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
