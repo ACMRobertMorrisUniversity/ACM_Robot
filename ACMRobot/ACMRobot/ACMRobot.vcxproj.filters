@@ -18,18 +18,12 @@
     <ClInclude Include="ACM_Robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VSPDE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ACM_Robot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VSPDE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
