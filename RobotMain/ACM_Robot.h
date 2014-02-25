@@ -37,21 +37,23 @@ class ACM_Robot{
 	MotorChannel ChannelA;
 	MotorChannel ChannelB;
 	int PingPin;
-	Servo myServo;
-	long PingDuration;
 	
+	long PingDuration;
 	void InitializeMotors();
+	
 public:
 	ACM_Robot();
 	~ACM_Robot();
-	
+	Servo myServo;
 	bool RotatePingSensor(int angle);
 	void Scan(int min_angle, int max_angle);
 	void DriveForward(word speed);
+	void DriveBackward(word speed);
 	void DriveForwardFull();
 	void Halt();
 	long Ping();
 	void MotorFailDetected();
+	void Initialize();
 
 	// Assign pins.
 #pragma region AssignPins
@@ -59,8 +61,8 @@ public:
 		PingPin = pin;
 	}
 	void AssignServo(int pin){
-		//myServo.attach(pin);
-		pinMode(pin,OUTPUT);
+		myServo.attach(pin);
+		//pinMode(pin,OUTPUT);
 	}
 #pragma endregion AssignPins
 
