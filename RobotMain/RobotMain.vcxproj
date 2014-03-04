@@ -39,7 +39,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files %28x86%29\Arduino\libraries\Servo;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Walter Bishop\Documents\GitHub\ACM_Robot\RobotMain\utility;C:\Program Files (x86)\Arduino\libraries\SD;C:\Program Files %28x86%29\Arduino\libraries\Servo;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -72,11 +72,15 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\libraries\Servo\Servo.h" />
     <ClInclude Include="ACM_Robot.h" />
+    <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="Vector2.h" />
     <ClInclude Include="Visual Micro\.RobotMain.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\libraries\Servo\Servo.cpp" />
     <ClCompile Include="ACM_Robot.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RobotMain.ino" />

@@ -12,14 +12,7 @@ void setup()
 
 void loop()
 {
-	if( i >= 150 )
-		i = 0;
-	i+=5;
-	//robot.RotatePingSensor(i);
+	
 	robot.Scan(10,150);
-	delay(1000);
-	robot.DriveForwardFull();
-	delay(500);
-	robot.Halt();
-	delay(1000);
+	delay( 500 );
 }
