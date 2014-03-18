@@ -5,7 +5,7 @@
 
 #include "arduino.h"
 #include "Servo.h"
-
+#include "Vector2.h"
 
 /*/ 
 	Function 		Channel A 	Channel B
@@ -20,22 +20,26 @@ struct MotorChannel
 	{
 		MotorChannel( -1, -1, -1, -1 );
 	}
-	MotorChannel( int directionPin, int speedPin, int brakePin, int currentSensePin )
+	MotorChannel( uint8_t directionPin, uint8_t speedPin, uint8_t brakePin, uint8_t currentSensePin )
 	{
 		DirectionPin = directionPin; SpeedPin = speedPin; BrakePin = brakePin;
 		CurrentSensePin = currentSensePin;
 	}
-	int DirectionPin;
-	int SpeedPin;
-	int BrakePin;
-	int CurrentSensePin;
+	uint8_t DirectionPin;
+	uint8_t SpeedPin;
+	uint8_t BrakePin;
+	uint8_t CurrentSensePin;
 };
 
-const unsigned int DIST_COUNT = 100;
+const uint8_t DIST_COUNT = 100;
+const char TAB_CHAR = 6;
 
 class ACM_Robot{
 	// Robots Brain structures.
 	float Distances[DIST_COUNT];
+	Vector2 verts1[DIST_COUNT];
+	Vector2 verts2[DIST_COUNT];
+	Vector2 verts3[DIST_COUNT];
 
 	// Motor Control structures.
 	MotorChannel ChannelA;
@@ -43,8 +47,8 @@ class ACM_Robot{
 	void InitializeMotors();		
 
 	// Ping Control structures.
-	int PingPin;
-	long PingDuration;
+	uint8_t PingPin;
+	uint8_t PingDuration;
 	
 	
 public:
@@ -56,10 +60,10 @@ public:
 	Servo myServo;			// Unfortunately this has to be a public member to work
 	
 	// Ping Sensor Methods
-	bool RotatePingSensor(int angle);
-	void Scan(int min_angle, int max_angle);
-	void ScanEx(int min_angle, int max_angle, int passes);
-	long Ping();
+	bool RotatePingSensor(uint8_t angle);
+	void Scan(uint8_t min_angle, uint8_t max_angle);
+	Vector2* ScanEx(uint8_t min_angle, uint8_t max_angle, uint8_t passes);
+	uint8_t Ping();
 
 	// Motor related Methods
 	void DriveForward(word speed);
@@ -73,16 +77,16 @@ public:
 
 	// Assign pins.
 #pragma region AssignPins
-	void AssignPingPin(int pin){
+	void AssignPingPin(uint8_t pin){
 		PingPin = pin;
 	}
-	void AssignServo(int pin){
+	void AssignServo(uint8_t pin){
 		myServo.attach(pin);
 		//pinMode(pin,OUTPUT);
 	}
 #pragma endregion AssignPins
 
 	// Analyze the environment
-	void Analyze(void);
+	void DetectObstacles(Vector2* pts);
 
 };

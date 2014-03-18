@@ -1,12 +1,13 @@
-#pragma once
 
+#pragma once
+#include <StandardCplusplus.h>
 #include "Vector2.h"
-#include <vector>
 
 class Obstacle
 {
 private:
-	std::vector<Vector2,std::allocator<void>> Points[10];
+	//std::vector<Vector2,std::allocator<void>> Points;
+	Vector2 Points[100];
 public:
 	Obstacle(void);
 	~Obstacle(void);

@@ -13,6 +13,6 @@ void setup()
 void loop()
 {
 	
-	robot.Scan(10,150);
+	DetectObstacles( robot.ScanEx(10,150) );
 	delay( 500 );
 }

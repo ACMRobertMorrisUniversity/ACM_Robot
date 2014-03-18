@@ -75,7 +75,7 @@ void ACM_Robot::DriveForwardFull()
 	DriveForward(255);
 }
 
-bool ACM_Robot::RotatePingSensor(int angle)
+bool ACM_Robot::RotatePingSensor(uint8_t angle)
 {
 	// TODO: write rotation code for arduino
 	myServo.write( angle ); // turns out its very simple...
@@ -87,26 +87,47 @@ void ACM_Robot::MotorFailDetected()
 	// TODO: what to do when a motor fails...
 }
 
-void ACM_Robot::ScanEx(int min_angle, int max_angle, int passes)
+Vector2 * ACM_Robot::ScanEx(uint8_t min_angle, uint8_t max_angle, uint8_t passes)
 {
-	long D1[DIST_COUNT], D2[DIST_COUNT], D3[DIST_COUNT];
-	for ( int i = 0; i < passes; i++ )
+	uint8_t Distances[3][DIST_COUNT];
+	float degrees = 0, DAvg = 0.0f;
+	Vector2 verts[DIST_COUNT];
+
+	for ( uint8_t p = 0; p < passes; p++ )
 	{
-		
+		for (uint8_t i = 0; i < DIST_COUNT; i++ )
+		{
+			char buffer[5];
+			degrees = (float)min_angle + (float)i * ((float)(max_angle-min_angle)/(float)(DIST_COUNT-1));
+			// Rotate the Ping Sensor to the new angle.
+			RotatePingSensor(degrees);
+			delay(5);
+			// Send a message to the ping sensor to return
+			//  a value and store it in the list.
+			Distances[p][i] = Ping();
+			delay(5);
+		}
 	}
+	for (uint8_t i = 0; i < DIST_COUNT; i++ )
+	{
+		degrees = (float)min_angle + (float)i * ((float)(max_angle-min_angle)/(float)(DIST_COUNT-1));
+		DAvg = (Distances[0][i] + Distances[0][i] + Distances[0][i])/3.0f;
+		verts[i].X = DAvg * cos(degrees*PI/180);
+		verts[i].Y = DAvg * sin(degrees*PI/180);
+	}
+	return verts;
 }
 
-void ACM_Robot::Scan(int min_angle, int max_angle)
+void ACM_Robot::Scan(uint8_t min_angle, uint8_t max_angle)
 {
-	int displayDist = 0;
+	uint8_t displayDist = 0;
 	float degrees = 0;
-	char tab = 9;
 	RotatePingSensor(min_angle);
-	delay(20);
+	delay(10);
 	// Robot is going to rotate the ping sensor
 	// Robot cycles through angles from min to max
 	//  and fills the Distances list with each distance.
-	for (int i = 0; i < DIST_COUNT; i++ )
+	for (uint8_t i = 0; i < DIST_COUNT; i++ )
 	{
 		char buffer[5];
 		degrees = (float)min_angle + (float)i * ((float)(max_angle-min_angle)/(float)(DIST_COUNT-1));
@@ -118,8 +139,8 @@ void ACM_Robot::Scan(int min_angle, int max_angle)
 		Distances[i] = Ping();
 		delay(10);
 		
-		Serial.print((int)degrees);
-		Serial.print(tab);
+		Serial.print((uint8_t)degrees);
+		Serial.print(TAB_CHAR);
 		displayDist = Distances[i];
 		Serial.println(displayDist);
 
@@ -138,9 +159,9 @@ void ACM_Robot::Scan(int min_angle, int max_angle)
 	}
 }
 
-long ACM_Robot::Ping()
+uint8_t ACM_Robot::Ping()
 {
-	long duration;
+	uint8_t duration;
 	// Send out PING))) signal pulse
 	pinMode(PingPin, OUTPUT);
 	delay(2);
@@ -156,15 +177,18 @@ long ACM_Robot::Ping()
 	delay(2);
 	//Convert duration into distance
 	//Distance = duration / 29 / 2;
-	long temp = (duration / 29 / 2);
+	uint8_t temp = (duration / 29 / 2);
 	
 	return temp;
 }
 
-void ACM_Robot::Analyze(void)
+void ACM_Robot::DetectObstacles(Vector2* pts)
 {
-	for( int i = 0; i < DIST_COUNT; i++ )
+	Vector2 LineStart, LineEnd;
+	// set the line start to the first point in the array
+	LineStart = *(pts);
+	for( uint8_t i = 0; i < DIST_COUNT; i++ )
 	{
-
+		
 	}
 }
